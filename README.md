@@ -1,4 +1,4 @@
-# telegram_summarize_bot
+# Telegram grouop chat summarizer
 **A telegram Bot** that can summarize your **group chats** and additional fun
 
 It uses [BARDAPI](https://github.com/dsdanielpark/Bard-API/) and [Pyrogram](https://pyrogram.org/)
