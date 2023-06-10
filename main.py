@@ -35,7 +35,7 @@ async def run_bard(client, message):
 
 
 @app.on_message(filters.command(["send_raw"]))
-async def run_bard(client, message):
+async def send_raw(client, message):
     df, limit, sent_message = await fetch_msg_data(client, app, message, limit=100)
     if len(df) == 0:
         await client.edit_message_text(chat_id=message.chat.id, message_id=sent_message.id,
@@ -88,6 +88,19 @@ async def give_opinion(client,message):
     opinion = get_summary(prompt)
     await message.reply(opinion, reply_to_message_id=msg_id)
 
+
+@app.on_message(filters.command(['start', 'help']))
+async def get_help(client, message):
+    await message.reply("Available commands:\n\n"
+                        "/summarize - Summarize the last 100 messages\n"
+                        "/summarize number - Summarize the last <number> messages\n"
+                        "/summarize username - Summarize the last 100 messages by a user\n"
+                        "/send_raw - Send the last 100 messages as csv\n"
+                        "/send_raw number - Send the last <number> messages as csv\n"
+                        "/give_opinion - Give opinion on the replied message\n"
+                        "/give_opinion query - Give your opinion based on the prompt on the replied message\n"
+                        "/askb query - Ask a question to bard\n"
+                        "/help - Get help")
 
 
 if __name__ == '__main__':
