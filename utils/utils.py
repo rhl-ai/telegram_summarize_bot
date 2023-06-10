@@ -66,5 +66,5 @@ def create_prompt_files():
 
         # Write the list to a JSON file
         filename = 'data/prompts.json'
-        with open("data/prompts.json", "w") as f:
+        with open(filename, "w") as f:
             json.dump(list_of_items, f, indent=4)

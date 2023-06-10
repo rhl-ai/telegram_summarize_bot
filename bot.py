@@ -3,9 +3,12 @@ import os
 import numpy as np
 
 from pyrogram import Client, filters
-from utils import fetch_msg_data,create_prompt_files
-from summary_utils import summarize_df, get_summary
-from message_utils import replied_msg_data, fetch_text
+from utils.utils import fetch_msg_data,create_prompt_files
+from utils.summary_utils import summarize_df, get_summary
+from utils.message_utils import replied_msg_data, fetch_text
+
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Client(
     "pyrogram",
@@ -13,6 +16,7 @@ app = Client(
     api_hash=os.environ.get('API_HASH','' ),
     bot_token=os.environ.get('BOT_TOKEN','' )
 )
+
 
 
 @app.on_message(filters.command(["askb"]))

@@ -1,0 +1,6 @@
+numpy==1.24.3
+pandas==1.5.3
+bardapi==0.1.11
+Pyrogram==2.0.106
+python-dotenv=1.0.0
+tgcrypto

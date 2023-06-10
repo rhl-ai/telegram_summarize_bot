@@ -1,7 +1,7 @@
 import os
 from bardapi import Bard
 
-from utils import write_json
+from utils.utils import write_json
 
 os.environ['_BARD_API_KEY'] = "WwgtZlDmzrIlN-WIeGvWgEo4GNbKNLNJ4yoJukoShZYdxu9LVUmS3rzhjC8NOAmC4AS5SQ."
 
