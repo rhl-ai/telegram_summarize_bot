@@ -11,6 +11,7 @@ You can make use of OPENAI API as well which is included in unused scripts.
   * Type `/summarize` to get a summary of the 100 recent messages
   * Type `/summarize <number>` to get a summary of the <number> recent messages
   * Type `/summarize <username>` to get a summary of the 100 recent messages from <username>
+  * Type `/summarize` while replying to a message and it will summarize all messages after it or 200 messages whichever is the minimum
 * Type `/askb <Query>` to ask a question to the bot which uses [BARDAPI](https://github.com/dsdanielpark/Bard-API/)
 * Type `/give_opinion` or `/give_opinion <prompt>`  while replying to a text to get the opinion of the bot on the text
 * Type `/send_raw` or `/send_raw <number>` to get raw csv for testing

@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 from pyrogram import Client, filters
-from utils.utils import fetch_msg_data,create_prompt_files
+from utils.utils import fetch_msg_data,create_prompt_files, fetch_msgs_after_reply
 from utils.summary_utils import summarize_df, get_summary
 from utils.message_utils import replied_msg_data, fetch_text
 
@@ -49,7 +49,11 @@ async def send_raw(client, message):
 
 @app.on_message(filters.command(["summarize"]))
 async def summarize_chat(client, message):
-    df, limit, sent_message = await fetch_msg_data(client, app, message, limit=100)
+    # check if message is a reply
+    if message.reply_to_message:
+        df, limit, sent_message = await fetch_msgs_after_reply(client,app, message)
+    else:
+        df, limit, sent_message = await fetch_msg_data(client, app, message, limit=100)
     if len(df) == 0:
         await client.edit_message_text(chat_id=message.chat.id, message_id=sent_message.id,text=f'No messages found')
         return
@@ -94,6 +98,7 @@ async def get_help(client, message):
     await message.reply("Available commands:\n\n"
                         "/summarize - Summarize the last 100 messages\n"
                         "/summarize number - Summarize the last <number> messages\n"
+                         "/summarize - reply to a message and it summarize all messages after the replied message"
                         "/summarize username - Summarize the last 100 messages by a user\n"
                         "/send_raw - Send the last 100 messages as csv\n"
                         "/send_raw number - Send the last <number> messages as csv\n"

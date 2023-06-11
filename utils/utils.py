@@ -1,4 +1,5 @@
 import pandas as pd
+from better_profanity import profanity
 import json
 import os
 
@@ -18,7 +19,21 @@ def format_msg_data(msg_data, username=None):
 
     if username:
         df = df[df.username.isin([username[1:]])]
+
+    df.message = df.message.apply(profanity.censor)
+
     return df
+
+async def fetch_msgs_after_reply(client, app, message, limit=200):
+
+    msg_id_from_reply = message.reply_to_message.id
+    sent_message = await message.reply('Fetching all messages after this message....', reply_to_message_id=msg_id_from_reply)
+    current_message = min(limit, message.id - msg_id_from_reply)
+    msg_data = await app.get_messages(int(message.chat.id), list(range(msg_id_from_reply,msg_id_from_reply + current_message - 1)))
+
+    df = format_msg_data(msg_data)
+
+    return df, limit, sent_message
 
 
 async def fetch_msg_data(client, app, message, limit=100):
