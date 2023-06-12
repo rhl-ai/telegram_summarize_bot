@@ -20,7 +20,8 @@ def format_msg_data(msg_data, username=None):
     if username:
         df = df[df.username.isin([username[1:]])]
 
-    df.message = df.message.apply(profanity.censor)
+    df.message = df.message.str.encode('utf-16').str.decode('utf-16').apply(profanity.censor)
+    # df.message = df.message.apply(profanity.censor)
 
     return df
 
