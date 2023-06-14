@@ -6,4 +6,4 @@ python-dotenv==1.0.0
 better-profanity==0.7.0
 tgcrypto
 pytesseract==0.3.10
-opencv-python==4.7.0.72
+opencv-python-headless==4.7.0.72
