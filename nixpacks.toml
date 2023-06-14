@@ -1,3 +1,2 @@
 [phases.setup]
-aptPkgs = ["...", "tesseract-ocr"]
-aptPkgs = ["...", "libtesseract-dev"]
+aptPkgs = ["...", "tesseract-ocr", "libtesseract-dev"]
