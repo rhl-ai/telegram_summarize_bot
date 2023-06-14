@@ -7,14 +7,41 @@ You can make use of OPENAI API as well which is included in unused scripts.
 
 
 ## Features
-* Summarize your group chats
-  * Type `/summarize` to get a summary of the 100 recent messages
-  * Type `/summarize <number>` to get a summary of the <number> recent messages
-  * Type `/summarize <username>` to get a summary of the 100 recent messages from <username>
-  * Type `/summarize` while replying to a message and it will summarize all messages after it or 200 messages whichever is the minimum
-* Type `/askb <Query>` to ask a question to the bot which uses [BARDAPI](https://github.com/dsdanielpark/Bard-API/)
-* Type `/give_opinion` or `/give_opinion <prompt>`  while replying to a text to get the opinion of the bot on the text
-* Type `/send_raw` or `/send_raw <number>` to get raw csv for testing
+
+### Get Rizz
+* `/get_rizz` - Get Rizz for the replied image conversation
+* `/get_rizz query:` **query** - Get Rizz for the replied image with your prompt
+
+### OCR
+* `/ocr` - Get OCR for the replied image
+* `/ocr image_word` - Get OCR for the replied image with image
+
+### Summarize with default prompt
+* `/summarize` - Summarize the last 100 messages
+* `/summarize` **number** - Summarize the last number messages
+* `/summarize` - reply to a message and it summarize all messages after the replied message
+* `/summarize` **@username** - Summarize the last 100 messages by a user
+
+### Summarize with your prompt
+* `/summarize query:` **query** - Summarize the last 100 messages
+* `/summarize number query:` **query** - Summarize the last number messages
+* `/summarize query:` **query** - reply to a message and it summarize all messages after the replied message
+* `/summarize username query:` **query** - Summarize the last 100 messages by a user
+
+### Get opinion on the message
+* `/give_opinion` - Give opinion on the replied message
+* `/give_opinion` **query** - Give your opinion based on the prompt on the replied message
+
+### Ask bard
+* `/askb` **query** - Ask a question to bard
+
+### Raw text data
+* `/send_raw` - Send the last 100 messages as csv
+* `/send_raw` **number** - Send the last number messages as csv
+
+### Get help
+* `/help` - Get help
+
 
 ## How to Deploy 
 You can Deploy it to Railway or run locally 
