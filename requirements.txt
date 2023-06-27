@@ -1,9 +1,9 @@
 numpy==1.24.3
 pandas==1.5.3
-bardapi==0.1.11
 Pyrogram==2.0.106
 python-dotenv==1.0.0
 better-profanity==0.7.0
 tgcrypto
 pytesseract==0.3.10
 opencv-python-headless==4.7.0.72
+bardapi
